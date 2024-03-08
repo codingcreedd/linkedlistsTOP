@@ -208,26 +208,30 @@ class LinkedList{
         this.length++;
     }
 
+    removeAt(index)
+    {
+        if(!this.head)
+            return null;
+        else if(index === this.length - 1)
+            this.pop();
+        else if(index === 0)
+        {
+            this.head = this.head.nextNode;
+        }
+        else
+        {
+            let currentNode = this.head;
+            let prevNode = null;
+            let i = 0;
+            while(i < index){
+                prevNode = currentNode;
+                currentNode = currentNode.nextNode;
+                i++;
+            }
+
+            prevNode.nextNode = currentNode.nextNode;
+        }
+        
+    }
+
 }
-
-const list = new LinkedList();
-
-list.append(1);
-list.append(2);
-list.append(3);
-list.print();
-console.log('\n');
-list.prepend(0);
-list.print();
-console.log(list.contains(1));
-console.log(list.contains(200));
-console.log(list.contains(400));
-console.log(list.contains(0));
-console.log(list.find(2));
-console.log(list.toString());
-list.insertAt(-1, 0);
-console.log(list.toString());
-list.insertAt(-2, 100);
-console.log(list.toString());
-list.insertAt(1003928323, 3);
-console.log(list.toString());
