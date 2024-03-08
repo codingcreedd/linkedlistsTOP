@@ -113,6 +113,8 @@ class LinkedList{
             newNode.nextNode = this.head;
             this.head = newNode;
         }
+
+        this.length++;
         
     }
 
@@ -173,6 +175,39 @@ class LinkedList{
         return to_string_format;
     }
 
+    insertAt(value, index)
+    {
+        const newNode = new Node(value);
+        if(!this.head)
+            this.head = newNode;
+        else if(index == 0)
+        {
+            this.prepend(value);
+        }
+        else if(index > this.length - 1)
+        {
+            this.append(value);
+        }
+        else
+        {
+            let currentNode = this.head;
+            let prevNode = null;
+            let i = 1;
+            while(i <= index)
+            {
+                prevNode = currentNode;
+                currentNode = currentNode.nextNode;
+                i++;
+            }
+
+            newNode.nextNode = prevNode.nextNode;
+            prevNode.nextNode = newNode;
+
+        }
+
+        this.length++;
+    }
+
 }
 
 const list = new LinkedList();
@@ -189,4 +224,10 @@ console.log(list.contains(200));
 console.log(list.contains(400));
 console.log(list.contains(0));
 console.log(list.find(2));
+console.log(list.toString());
+list.insertAt(-1, 0);
+console.log(list.toString());
+list.insertAt(-2, 100);
+console.log(list.toString());
+list.insertAt(1003928323, 3);
 console.log(list.toString());
