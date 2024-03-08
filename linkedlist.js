@@ -49,7 +49,7 @@ class LinkedList{
         return this.length;
     }
 
-    head(){
+    getHead(){
         return this.head;
     }
 
@@ -70,7 +70,7 @@ class LinkedList{
         {
             let currentNode = this.head;
             let i = 0;
-            while(i <= index){
+            while(i < index){
                 currentNode = currentNode.nextNode;
                 i++;
             }
@@ -115,3 +115,15 @@ list.append(3);
 list.print();
 list.pop();
 list.print();
+list.pop();
+list.pop();
+list.pop();
+list.print();
+console.log(list.getHead());
+console.log(list.size());
+list.pop();
+console.log(list.size());
+console.log(list.at(0));
+list.append(1);
+list.append(2);
+console.log(list.at(1));
