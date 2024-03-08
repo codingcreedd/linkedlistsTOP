@@ -153,6 +153,26 @@ class LinkedList{
         }
     }
 
+    toString()
+    {
+        let to_string_format = '';
+        if(!this.head)
+        {
+            return to_string_format;
+        }
+        else
+        {
+            let currentNode = this.head;
+            while(currentNode){
+                to_string_format += `(${currentNode.element}) -> `;
+                currentNode = currentNode.nextNode;
+            }
+            to_string_format += ' null';
+        }
+
+        return to_string_format;
+    }
+
 }
 
 const list = new LinkedList();
@@ -169,3 +189,4 @@ console.log(list.contains(200));
 console.log(list.contains(400));
 console.log(list.contains(0));
 console.log(list.find(2));
+console.log(list.toString());
