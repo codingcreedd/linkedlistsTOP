@@ -103,7 +103,18 @@ class LinkedList{
         }
     }
 
-    
+    prepend(value)
+    {
+        const newNode = new Node(value);
+        if(!this.head)
+            this.head = newNode;
+        else
+        {
+            newNode.nextNode = this.head;
+            this.head = newNode;
+        }
+        
+    }
 
 }
 
@@ -113,17 +124,6 @@ list.append(1);
 list.append(2);
 list.append(3);
 list.print();
-list.pop();
+console.log('\n');
+list.prepend(0);
 list.print();
-list.pop();
-list.pop();
-list.pop();
-list.print();
-console.log(list.getHead());
-console.log(list.size());
-list.pop();
-console.log(list.size());
-console.log(list.at(0));
-list.append(1);
-list.append(2);
-console.log(list.at(1));
