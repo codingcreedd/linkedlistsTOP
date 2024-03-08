@@ -116,6 +116,23 @@ class LinkedList{
         
     }
 
+    contains(value)
+    {
+        if(!this.head)
+            return false;
+        else
+        {
+            let currentNode = this.head;
+            while(currentNode){
+                if(currentNode.element === value)
+                    return true;
+                currentNode = currentNode.nextNode;
+            }
+
+            return false;
+        }
+    }
+
 }
 
 const list = new LinkedList();
@@ -127,3 +144,7 @@ list.print();
 console.log('\n');
 list.prepend(0);
 list.print();
+console.log(list.contains(1));
+console.log(list.contains(200));
+console.log(list.contains(400));
+console.log(list.contains(0));
