@@ -54,12 +54,56 @@ class LinkedList{
     }
 
     tail(){
-        let currentNode = head;
+        let currentNode = this.head;
         while(currentNode)
             currentNode = currentNode.nextNode;
 
         return currentNode;
     }
+
+    at(index)
+    {
+        if(index >= this.length || !this.head){
+            return null;
+        }
+        else
+        {
+            let currentNode = this.head;
+            let i = 0;
+            while(i <= index){
+                currentNode = currentNode.nextNode;
+                i++;
+            }
+
+            return currentNode;
+        }
+    }
+
+    pop()
+    {
+        if(!this.head){
+            return "There is nothing to pop";
+        }
+        else
+        {
+            let currentNode = this.head;
+            let prevNode = null;
+            while(currentNode.nextNode)
+            {
+                prevNode = currentNode;
+                currentNode = currentNode.nextNode;
+            } 
+
+            if(prevNode === null)
+                this.head = null;
+            else
+                prevNode.nextNode = null;
+
+            this.length--;
+        }
+    }
+
+    
 
 }
 
@@ -68,5 +112,6 @@ const list = new LinkedList();
 list.append(1);
 list.append(2);
 list.append(3);
-console.log(list);
+list.print();
+list.pop();
 list.print();
